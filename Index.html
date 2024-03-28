@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <script type = "text/javascript" src = "https://www.gstatic.com/charts/loader.js">
+      </script>
+      <script type = "text/javascript">
+         google.charts.load('current', {packages: ['corechart','line']});     
+      </script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+  <h1>My First Bootstrap Page</h1>
+  <p>Resize this responsive page to see the effect!</p> 
+</div>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div id = "histograma" style = "width: 400px; height: 400px; margin: 0 auto">
+      </div>
+      <script language = "JavaScript">
+         function drawChart() {
+            // Define the chart to be drawn.
+            var data = google.visualization.arrayToDataTable([
+               ['Student Roll No', 'height'],
+               ['1', 80],['2', 55],['3', 68],['4', 80],['5', 54],
+               ['6', 70],['7', 85],['8', 78],['9', 70],['10', 58],
+               ['11', 90],['12', 65],['13', 88],['14', 82],['15', 65],
+               ['16', 86],['17', 45],['18', 62],['19', 84],['20', 75],
+               ['21', 82],['22', 75],['23', 58],['24', 70],['25', 85]		  
+            ]);
+              
+            // Set chart options
+            var options = {
+               title: 'Histograma',
+               legend: { position: 'none' },
+            };				
+
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.Histogram(document.getElementById
+            ('histograma'));
+            chart.draw(data, options);
+         }
+         google.charts.setOnLoadCallback(drawChart);
+      </script>
+      
+    </div>
+    <div class="col-sm-4">
+      <div id = "dispersion" style = "width: 400px; height: 400px; margin: 0 auto">
+            </div>
+            <script language = "JavaScript">
+               function drawChart() {
+                  // Define the chart to be drawn.
+                  var data = new google.visualization.DataTable();
+                  data.addColumn('number', 'Age');
+                  data.addColumn('number', 'Weight');
+                  data.addRows([
+                     [ 8,      12],
+                     [ 4,      5.5],
+                     [ 11,     14],
+                     [ 4,      5],
+                     [ 3,      3.5],
+                     [ 6.5,    7]
+                  ]);
+                     
+                  // Set chart options
+                  var options = {
+                     'title':'dispersión básico',
+                     'width':400,
+                     'height':400,
+                     'legend': 'none'
+                  };
+
+                  // Instantiate and draw the chart.
+                  var chart = new google.visualization.ScatterChart(document.getElementById('dispersion'));
+                  chart.draw(data, options);
+               }
+               google.charts.setOnLoadCallback(drawChart);
+            </script> 
+    </div>
+    <div class="col-sm-4">
+      <div id = "barras" style = "width: 400px; height: 400px; margin: 0 auto">
+      </div>
+      <script language = "JavaScript">
+         function drawChart() {
+            // Define the chart to be drawn.
+            var data = google.visualization.arrayToDataTable([
+               ['Year', 'Asia'],
+               ['2012',  900],
+               ['2013',  1000],
+               ['2014',  1170],
+               ['2015',  1250],
+               ['2016',  1530]
+            ]);
+
+            var options = {title: 'barras'}; 
+
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.BarChart(document.getElementById('barras'));
+            chart.draw(data, options);
+         }
+         google.charts.setOnLoadCallback(drawChart);
+      </script>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div id = "areas" style = "width: 400px; height: 400px; margin: 0 auto">
+      </div>
+      <script language = "JavaScript">
+         function drawChart() {
+            // Define the chart to be drawn.
+            var data = google.visualization.arrayToDataTable([
+               ['Year', 'Sales', 'Expenses'],
+               ['2013',  1000,      400],
+               ['2014',  1170,      460],
+               ['2015',  660,       1120],
+               ['2016',  1030,      540]
+            ]);
+
+            var options = {title: 'areas',
+               hAxis: {title: 'Year', titleTextStyle: {color: '#333'}},
+               vAxis: {minValue: 0}
+            };  
+
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.AreaChart(document.getElementById ('areas'));
+            chart.draw(data, options);
+         }
+         google.charts.setOnLoadCallback(drawChart);
+      </script>
+    </div>
+    <div class="col-sm-4">
+      <div id = "lineas" style = "width: 400px; height: 400px; margin: 0 auto">
+      </div>
+      <script language = "JavaScript">
+         function drawChart() {
+            // Define the chart to be drawn.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Month');
+            data.addColumn('number', 'Tokyo');
+            data.addColumn('number', 'New York');
+            data.addColumn('number', 'Berlin');
+            data.addColumn('number', 'London');
+            data.addRows([
+               ['Jan',  7.0, -0.2, -0.9, 3.9],
+               ['Feb',  6.9, 0.8, 0.6, 4.2],
+               ['Mar',  9.5,  5.7, 3.5, 5.7],
+               ['Apr',  14.5, 11.3, 8.4, 8.5],
+               ['May',  18.2, 17.0, 13.5, 11.9],
+               ['Jun',  21.5, 22.0, 17.0, 15.2],
+               
+               ['Jul',  25.2, 24.8, 18.6, 17.0],
+               ['Aug',  26.5, 24.1, 17.9, 16.6],
+               ['Sep',  23.3, 20.1, 14.3, 14.2],
+               ['Oct',  18.3, 14.1, 9.0, 10.3],
+               ['Nov',  13.9,  8.6, 3.9, 6.6],
+               ['Dec',  9.6,  2.5,  1.0, 4.8]
+            ]);
+               
+            // Set chart options
+            var options = {'title' : 'lineas',
+               hAxis: {
+                  title: 'Month'
+               },
+               vAxis: {
+                  title: 'Temperature'
+               },   
+               'width':400,
+               'height':400   
+            };
+
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.LineChart(document.getElementById('lineas'));
+            chart.draw(data, options);
+         }
+         google.charts.setOnLoadCallback(drawChart);
+      </script>
+    </div>
+    <div class="col-sm-4">
+      <div id = "pastel" style = "width: 400px; height: 400px; margin: 0 auto">
+      </div>
+      <script language = "JavaScript">
+         function drawChart() {
+            // Define the chart to be drawn.
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Browser');
+            data.addColumn('number', 'Percentage');
+            data.addRows([
+               ['Firefox', 45.0],
+               ['IE', 26.8],
+               ['Chrome', 12.8],
+               ['Safari', 8.5],
+               ['Opera', 6.2],
+               ['Others', 0.7]
+            ]);
+               
+            // Set chart options
+            var options = {
+               'title':'pastel',
+               'width':400,
+               'height':400
+            };
+
+            // Instantiate and draw the chart.
+            var chart = new google.visualization.PieChart(document.getElementById('pastel'));
+            chart.draw(data, options);
+         }
+         google.charts.setOnLoadCallback(drawChart);
+      </script>
+    </div>
+  </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+</body>
+</html>
